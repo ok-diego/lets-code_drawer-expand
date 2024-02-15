@@ -1,0 +1,253 @@
+html,
+ul,
+li,
+article {
+  font-size: calc(100vw / 1920 * 10);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff2ec;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.bebas {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.ctn {
+  position: relative;
+}
+
+.logo {
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  top: 4rem;
+  left: 6.3rem;
+  z-index: 9;
+}
+
+.menu {
+  position: fixed;
+  width: 4.7rem;
+  top: 5.5rem;
+  right: 4rem;
+  z-index: 9;
+}
+
+.menu img {
+  position: fixed;
+  width: 3%;
+  height: 3%;
+  top: 5.1rem;
+  right: 6.3rem;
+}
+
+.ctn-images {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+section.ctn-imgs__holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  transition: all 1s ease-in-out;
+}
+
+article.ctn-imgs__each {
+  flex: 0 0 25vw;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  /* transition: clip-path 1.2s ease-in-out;
+  clip-path: inset(0% 0% 0% 0%); */
+}
+
+article.ctn-imgs__each.is-expand {
+  flex: 0 0 100vw;
+  opacity: 1;
+}
+
+/* everything with the class is-open and it's children dont' have is-expand */
+.is-open :not(.is-expand) {
+  flex: 0 0 0vw;
+}
+
+article.ctn-imgs__each:nth-child(1) {
+  background-image: url("/src/images/sunglass_model1.jpg");
+}
+
+article.ctn-imgs__each:nth-child(2) {
+  background-image: url("/src/images/sunglass_model2.jpg");
+}
+
+article.ctn-imgs__each:nth-child(3) {
+  background-image: url("/src/images/sunglass_model3.jpg");
+}
+
+article.ctn-imgs__each:nth-child(4) {
+  background-image: url("/src/images/sunglass_model4.jpg");
+}
+
+article.ctn-imgs__each.is-hover {
+  opacity: 1;
+}
+
+article.ctn-imgs__each.is-open {
+  /* opacity: 1;
+  cursor: pointer; */
+  /* position: fixed;
+  width: 100%;
+  z-index: 8;
+  /* clip-path: inset(0% 0% 0% 0%); */
+}
+
+article.ctn-imgs__each img {
+  /* width: auto;
+  height: 50%; */
+  /* with 100% the element will be 100% of the parent's highest number */
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+}
+
+article.ctn-images__each.is-open img {
+  /* opacity: 1; */
+  /* object-position: 0rem 0%; */
+}
+
+.btn__close {
+  display: block;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  background-color: white;
+  border-radius: 100%;
+  z-index: 8;
+  opacity: 0;
+  transition: opacity 0.225s ease-in-out;
+  cursor: pointer;
+}
+
+.btn__close:hover {
+  background-color: black;
+  border-radius: 100%;
+}
+
+/* hover can only be once on each line in css */
+/* hover on an element will apply to all its children elements  */
+.btn__close:hover .svg-stroke {
+  stroke: white;
+}
+
+/* ___________cards */
+/* ___________cards */
+.cards {
+  position: absolute;
+  width: 100vw;
+  height: 86vh;
+  left: 0;
+  top: 14vh;
+  z-index: 1;
+}
+
+ul.cards__holder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+li.cards__each {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 9.4rem;
+  padding-bottom: 9.4rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+li.cards__each:hover {
+  color: white;
+}
+
+li.cards__each.is-active {
+  flex-direction: row;
+  align-items: flex-end;
+  visibility: visible;
+  color: white;
+  z-index: 9;
+}
+
+ul.cards__holder.is-col li.cards__each:not(.is-active) {
+  display: none;
+}
+
+ul.cards__holder.is-col {
+  grid-template-columns: 1fr;
+}
+
+li.cards__each:nth-last-child(-n + 3) {
+  border-left: 1px solid #000;
+}
+
+/* or using the + combinator */
+/* li.cards__each + li.cards__each {
+  border-left: 1px solid #000;
+} */
+
+.cards__txt-top {
+  margin-left: 6.4rem;
+}
+
+.cards__txt-top span {
+  font-size: 2.873rem;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+
+.cards__txt-top h1 {
+  font-size: 7.325rem;
+  font-family: "Bebas Neue", monospace;
+  width: 50%;
+  line-height: 86%;
+  margin-top: 1.4rem;
+}
+
+.cards__index {
+  font-family: "Bebas Neue", monospace;
+  font-size: 40.4rem;
+  text-align: center;
+  line-height: 56%;
+  letter-spacing: -2.1rem;
+  padding-right: 5rem;
+}
